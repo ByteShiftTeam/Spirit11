@@ -3,7 +3,7 @@ session_start();
 
 // Check if the user is logged in
 if (!isset($_SESSION['user_id'])) {
-    header("Location: login.html");
+    header("Location: login.html"); // Redirect to login if not authenticated
     exit();
 }
 
@@ -15,27 +15,24 @@ $user_id = $_SESSION['user_id'];
 $username = $_SESSION['username'];
 $team_name = $_SESSION['team_name'];
 
-// Query to fetch user team details
-$stmt = $conn->prepare("SELECT team_name FROM users WHERE id = ?");
-$stmt->bind_param("i", $user_id);
-$stmt->execute();
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
+// Here, you can query additional data if needed
+// For example, fetch user-specific team statistics or other information
+// $stmt = $conn->prepare("SELECT * FROM team_stats WHERE user_id = ?");
+// $stmt->bind_param("i", $user_id);
+// $stmt->execute();
+// $result = $stmt->get_result();
+// $team_stats = $result->fetch_assoc();
+
+// Prepare the data to send as JSON
+$response = [
+    'username' => $username,
+    'team_name' => $team_name,
+    // 'team_stats' => $team_stats, // Add more fields as needed
+];
+
+// Send the data as a JSON response
+echo json_encode($response);
+
+// Close the database connection
+$conn->close();
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
-</head>
-<body>
-    <h2>Welcome, <?php echo htmlspecialchars($username); ?>!</h2>
-    <p>Team: <?php echo htmlspecialchars($team_name); ?></p>
-
-    <!-- You can add additional team-related information here -->
-    <p>Team details and statistics would be displayed here.</p>
-
-    <a href="logout.php">Logout</a>
-</body>
-</html>
