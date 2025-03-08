@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root"; // Change if necessary
 $password = ""; // Change if necessary
-$dbname = "game_website"; // Change to your actual database name
+$dbname = "users"; // Change to your actual database name
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {

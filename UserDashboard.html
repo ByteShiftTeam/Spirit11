@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>User Dashboard</title>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!------ Include the above in your HEAD tag ---------->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+	<link rel="stylesheet" href="stylesAdminDashboard.css">
+</head>
+<body>
+	<nav class="navbar">
+		<span class="welcome-text">Welcome to User's Dashboard!</span>
+		<button class="logout-btn"><i class="bi bi-box-arrow-right"></i> Logout</button>
+	</nav>
+	
+	
+	<div class="box" style="background-color: rgb(255, 255, 255,0); color: rgb(0, 0, 0);">
+		<div class="container">
+			<div class="container mt-5" style="display: none; background-color: rgb(255, 255, 255,0)"></div>
+				<h2 class="text-center mb-4" ><i class="bi bi-controller"></i> Game Dashboard</h2>
+				<div class="user-details">
+					<div class="row">
+						<div class="col-md-4 text-center">
+							<div class="user-info text-center">
+								<h4><i class="bi bi-person"></i> User Information</h4>
+								<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMWY_L42fWOZScLlqP0SxnkHfQKDY7S4NGEQ&s" alt="Profile Picture" class="img-fluid rounded-circle mb-3 userPic" style="width: 150px; height: 150px;">
+								<div class="user-details-info">
+									<p><strong><i class="bi bi-person"></i> Name:</strong> John Doe</p>
+									<p><strong><i class="bi bi-envelope"></i> Email:</strong> john.doe@example.com</p>
+									<p><strong><i class="bi bi-calendar"></i> Joined:</strong> January 1, 2020</p>
+									<p><strong><i class="bi bi-geo-alt"></i> Location:</strong> New York, USA</p>
+									<div class="text-center">
+										<button class="btn btn-primary" onclick="showFullUserInfo()"><i class="bi bi-eye"></i> View More</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="user-stats">
+								<h4><i class="bi bi-bar-chart"></i> Statistics</h4>
+								<p><strong><i class="bi bi-controller"></i> Games Played:</strong> 50</p>
+								<p><strong><i class="bi bi-trophy"></i> High Score:</strong> 2000</p>
+								<p><strong><i class="bi bi-star"></i> Achievements:</strong> 10</p>
+								<div class="text-center">
+									<button class="btn btn-primary" onclick="showFullStatistics()"><i class="bi bi-eye"></i> View More</button>
+								</div>
+							</div>
+							
+							<div class="teamDetails mt-4">
+								<h4><i class="bi bi-people"></i> Team Details</h4>
+								<div class="card-deck">
+									<div class="card">
+										<div class="card-body">
+											<h4 class="card-title"><i class="bi bi-people"></i> Your Team</h4>
+											<div class="team-players">
+												<!-- Selected players will be displayed here -->
+											</div>
+											<p class="team-status"><strong><i class="bi bi-check-circle"></i> Team Completeness:</strong> <span id="team-completeness">0/11 players selected</span></p>
+											<p class="total-points"><strong><i class="bi bi-star"></i> Total Points:</strong> <span id="total-points">0</span></p>
+											<div class="text-center">
+												<button class="btn btn-primary" onclick="showFullTeamDetails()"><i class="bi bi-eye"></i> View More</button>
+											</div>
+										</div>
+										<div class="card-body mt-4">
+											<h4 class="card-title"><i class="bi bi-person-plus"></i> Select Your Team</h4>
+											<div class="select-players">
+												<!-- Player selection interface will be here -->
+											</div>
+											<div class="text-center">
+												<button class="btn btn-primary" onclick="showCategory('all')"><i class="bi bi-eye"></i>Select Your Team</button>
+											</div>
+										</div>
+									</div>
+									<div class="card">
+										<div class="card-body">
+											<h4 class="card-title"><i class="bi bi-currency-dollar"></i> Budget</h4>
+											<p><strong><i class="bi bi-currency-dollar"></i> Initial Budget:</strong> Rs.9,000,000</p>
+											<p><strong><i class="bi bi-currency-dollar"></i> Spent:</strong> <span id="spent-budget">0</span></p>
+											<p><strong><i class="bi bi-currency-dollar"></i> Remaining:</strong> <span id="remaining-budget">9000000</span></p>
+											<div class="text-center">
+												<button class="btn btn-primary" onclick="showFullBudgetDetails()"><i class="bi bi-eye"></i> View More</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</div>
+					<div class="row mt-4"></div>
+						<div class="col-md-12 leaderBoard">
+							<h4><i class="bi bi-trophy"></i> Leaderboard</h4>
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th><i class="bi bi-sort-numeric-up"></i> Rank</th>
+										<th><i class="bi bi-person"></i> Name</th>
+										<th><i class="bi bi-trophy"></i> High Score</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>1</td>
+										<td>Bob Johnson</td>
+										<td>2200</td>
+									</tr>
+									<tr>
+										<td>2</td>
+										<td>John Doe</td>
+										<td>2000</td>
+									</tr>
+									<tr>
+										<td>3</td>
+										<td>Jane Smith</td>
+										<td>1800</td>
+									</tr>
+								</tbody>
+							</table>
+							<div class="text-center">
+								<button class="btn btn-primary" onclick="showFullLeaderboard()"><i class="bi bi-eye"></i> View Full Leaderboard</button>
+							</div>
+							
+						</div>
+					
+					<div class="col-md-12 mt-4 allPlayers">
+						<h4><i class="bi bi-people"></i> All Players</h4>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th><i class="bi bi-person"></i> Name</th>
+									<th><i class="bi bi-envelope"></i> Email</th>
+									<th><i class="bi bi-controller"></i> Games Played</th>
+									<th><i class="bi bi-trophy"></i> High Score</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Jane Smith</td>
+									<td>jane.smith@example.com</td>
+									<td>45</td>
+									<td>1800</td>
+								</tr>
+								<tr>
+									<td>Bob Johnson</td>
+									<td>bob.johnson@example.com</td>
+									<td>60</td>
+									<td>2200</td>
+								</tr>
+								<tr>
+									<td>Alice Brown</td>
+									<td>alice.brown@example.com</td>
+									<td>30</td>
+									<td>1500</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="text-center">
+							<button class="btn btn-primary" onclick="showFullTable()"><i class="bi bi-eye"></i> View All Players</button>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+		let initialBudget = 9000000;
+		let spentBudget = 0;
+		let selectedPlayers = [];
+		let teamCompleteness = 0;
+		let totalPoints = 0;
+
+		function showCategory(category) {
+			// Logic to display players in the selected category
+			alert('Show players in category: ' + category);
+		}
+
+		function addPlayerToTeam(player) {
+			if (selectedPlayers.length >= 11) {
+				alert('You cannot add more than 11 players to your team.');
+				return;
+			}
+			if (selectedPlayers.includes(player)) {
+				alert('Player already in your team.');
+				return;
+			}
+			selectedPlayers.push(player);
+			spentBudget += player.budget;
+			updateBudget();
+			updateTeamCompleteness();
+			updateTotalPoints();
+			displaySelectedPlayers();
+		}
+
+		function removePlayerFromTeam(player) {
+			const index = selectedPlayers.indexOf(player);
+			if (index > -1) {
+				selectedPlayers.splice(index, 1);
+				spentBudget -= player.budget;
+				updateBudget();
+				updateTeamCompleteness();
+				updateTotalPoints();
+				displaySelectedPlayers();
+			}
+		}
+
+		function updateBudget() {
+			document.getElementById('spent-budget').innerText = spentBudget;
+			document.getElementById('remaining-budget').innerText = initialBudget - spentBudget;
+		}
+
+		function updateTeamCompleteness() {
+			teamCompleteness = selectedPlayers.length;
+			document.getElementById('team-completeness').innerText = teamCompleteness + '/11 players selected';
+		}
+
+		function updateTotalPoints() {
+			totalPoints = selectedPlayers.reduce((sum, player) => sum + player.points, 0);
+			document.getElementById('total-points').innerText = totalPoints;
+		}
+
+		function displaySelectedPlayers() {
+			const teamPlayersDiv = document.querySelector('.team-players');
+			teamPlayersDiv.innerHTML = '';
+			selectedPlayers.forEach(player => {
+				const playerDiv = document.createElement('div');
+				playerDiv.innerHTML = `<p>${player.name} - ${player.university} - ${player.budget}</p>
+					<button class="btn btn-danger" onclick="removePlayerFromTeam(${player})"><i class="bi bi-trash"></i> Remove</button>`;
+				teamPlayersDiv.appendChild(playerDiv);
+			});
+		}
+
+		function showFullTable() {
+			// Logic to show the full table
+			window.location.href = 'player.html';
+
+			alert('Show full table functionality to be implemented.');
+		}
+
+		function showFullLeaderboard() {
+			// Logic to show the full leaderboard
+			alert('Show full leaderboard functionality to be implemented.');
+		}
+
+		function showFullStatistics() {
+			// Logic to show full statistics
+			alert('Show full statistics functionality to be implemented.');
+		}
+
+		function showFullTeamDetails() {
+			// Logic to show full team details
+			alert('Show full team details functionality to be implemented.');
+		}
+	</script>
+</body>
+</html>
