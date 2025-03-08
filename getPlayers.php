@@ -14,15 +14,19 @@ if ($conn->connect_error) {
 }
 
 // SQL query to get players
-$sql = "SELECT name, university, category, totalRuns, ballsFaced, inningsPlayed, wickets, oversBowled, runsConceded FROM players";
+$sql = "SELECT name, university FROM players";
 $result = $conn->query($sql);
 
 $players = [];
 
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $players[] = $row;
+if ($result) {
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            $players[] = $row;
+        }
     }
+} else {
+    die(json_encode(["error" => "Query failed: " . $conn->error]));
 }
 
 // Close the connection
