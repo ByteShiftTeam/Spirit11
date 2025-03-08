@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User-interface</title>
+    <link rel="stylesheet" href="player.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-4">
+        <h2 class="text-center">Available Players</h2>
+
+        <!-- Players Grid -->
+        <div class="row" id="playersList">
+            <!-- Players will be loaded here dynamically -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('getPlayers.php')
+                .then(response => response.json())
+                .then(data => {
+                    const playersList = document.getElementById('playersList');
+                    playersList.innerHTML = '';
+                    data.forEach(player => {
+                        const playerCard = document.createElement('div');
+                        playerCard.className = 'col-md-4 mb-3';
+                        playerCard.innerHTML = `
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">${player.name}</h5>
+                                    <p class="card-text">University: ${player.university}</p>
+                                    <p class="card-text">Category: ${player.category}</p>
+                                    <p class="card-text">Total Runs: ${player.totalRuns}</p>
+                                    <p class="card-text">Balls Faced: ${player.ballsFaced}</p>
+                                    <p class="card-text">Innings Played: ${player.inningsPlayed}</p>
+                                    <p class="card-text">Wickets: ${player.wickets}</p>
+                                    <p class="card-text">Overs Bowled: ${player.oversBowled}</p>
+                                    <p class="card-text">Runs Conceded: ${player.runsConceded}</p>
+                                </div>
+                            </div>
+                        `;
+                        playersList.appendChild(playerCard);
+                    });
+                })
+                .catch(error => console.error('Error fetching players:', error));
+        // Insert a sample player for demonstration
+        const samplePlayer = {
+            name: 'John Doe',
+            university: 'Sample University',
+            category: 'Batsman',
+            totalRuns: 1200,
+            ballsFaced: 900,
+            inningsPlayed: 50,
+            wickets: 30,
+            oversBowled: 100,
+            runsConceded: 500
+        };
+
+        const samplePlayerCard = document.createElement('div');
+        samplePlayerCard.className = 'col-md-4 mb-3';
+        samplePlayerCard.innerHTML = `
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${samplePlayer.name}</h5>
+                    <p class="card-text">University: ${samplePlayer.university}</p>
+                    <p class="card-text">Category: ${samplePlayer.category}</p>
+                    <p class="card-text">Total Runs: ${samplePlayer.totalRuns}</p>
+                    <p class="card-text">Balls Faced: ${samplePlayer.ballsFaced}</p>
+                    <p class="card-text">Innings Played: ${samplePlayer.inningsPlayed}</p>
+                    <p class="card-text">Wickets: ${samplePlayer.wickets}</p>
+                    <p class="card-text">Overs Bowled: ${samplePlayer.oversBowled}</p>
+                    <p class="card-text">Runs Conceded: ${samplePlayer.runsConceded}</p>
+                </div>
+            </div>
+        `;
+        playersList.appendChild(samplePlayerCard);
+    });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+<?php
+?>
