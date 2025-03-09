@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Website</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* General body and font style */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ffffff;
+        }
+
+        p {
+            font-size: 18px;
+            color: #ffffff;
+        }
+
+        /* Landing page */
+        .landing-container {
+            background-image: url('https://img.freepik.com/free-photo/view-empty-football-stadium_23-2151569873.jpg?t=st=1741447202~exp=1741450802~hmac=2f82fc3bf0936d506d1712169823a05386e3de548560bffe71e088e279e64483&w=996');
+            background-size: cover;
+            background-position: center;
+            background-image: url('https://img.freepik.com/free-vector/realistic-soccer-football-stadium-illustration_52683-60377.jpg?uid=R149532806&ga=GA1.1.1332548328.1721294427&semt=ais_hybrid');
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .landing-content {
+            max-width: 600px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Features Section */
+        .features-section {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .features-section h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .feature-card {
+            background-color: #f8f8f8;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 250px;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            color: #4CAF50;
+        }
+
+        .feature-card p {
+            color: #555;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            background-color: #f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .testimonials-section h2 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            width: 300px;
+        }
+
+        .testimonial-card p {
+            font-style: italic;
+            color: #555;
+        }
+
+        .testimonial-card strong {
+            display: block;
+            margin-top: 10px;
+            color: #4CAF50;
+        }
+
+        /* Call to Action Section */
+        .cta-section {
+            background-color: #4CAF50;
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-section h2 {
+            font-size: 28px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+        }
+        button{
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 5px; /* Added margin */
+        }
+
+        .navbar {
+            background-color: rgb(0, 0, 0, 0);
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg " style="background-color: rgb(0, 0, 255,0);">
+        <a class="navbar-brand" href="#">SPRITX</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <button class="btn btn-success" onclick="window.location.href='login.html'">Login</button>
+                </li>
+                <li class="nav-item">
+                    <button class="btn btn-primary" onclick="window.location.href='signUP.html'">Register</button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Landing Page Content -->
+    <div class="landing-container">
+        <div class="landing-content">
+            <h1>Welcome to the Ultimate Game Experience!</h1>
+            <p>Join the fun, play exciting games, and challenge your friends! Get started today.</p>
+            <a href="homeRegister.html" class="btn btn-success">Start Playing</a>
+        </div>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features-section" id="features">
+        <h2>Game Features</h2>
+        <div class="feature-card">
+            <h3>Multiplayer Mode</h3>
+            <p>Play with friends or other players online and compete in real-time.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Leaderboards</h3>
+            <p>Compete for the top spot and showcase your skills to the world!</p>
+        </div>
+        <div class="feature-card">
+            <h3>Customizable Characters</h3>
+            <p>Personalize your characters with various skins, outfits, and accessories.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Fantasy Cricket League</h3>
+            <p>Build your own dream teams from real university players and compete with others.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Player Data Management</h3>
+            <p>Manage player data, oversee statistics, and ensure a smooth experience.</p>
+        </div>
+        <div class="feature-card">
+            <h3>AI-powered Spiriter Chatbot</h3>
+            <p>Get smart picks and strategies from our AI-powered chatbot.</p>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section" id="testimonials">
+        <h2>What Our Players Say</h2>
+        <div class="testimonial-card">
+            <p>"This game is amazing! I love the multiplayer mode and the challenge it provides!"</p>
+            <strong>- John Doe</strong>
+        </div>
+        <div class="testimonial-card">
+            <p>"The customizable characters are so fun! I can truly make my character unique."</p>
+            <strong>- Jane Smith</strong>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="cta-section">
+        <h2>Join Us Today!</h2>
+        <p>Start your journey with the ultimate gaming experience. Are you ready to take the challenge?</p>
+        <a href="#start-playing" class="cta-button">Start Playing</a>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

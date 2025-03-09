@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+html, body {
+    background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    height: fit-content;
+}
+
+.card {
+    height: auto;
+    margin: auto;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(253, 253, 253, 1) !important;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+h3 {
+    color: #000;
+}
+
+.social_icon span {
+    font-size: 60px;
+    margin-left: 10px;
+    color: #9812ff;
+}
+
+.social_icon span:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.card-header h3 {
+    color: white;
+}
+
+.social_icon {
+    position: absolute;
+    right: 20px;
+    top: -45px;
+}
+
+input[type="text"], input[type="password"] {
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+    outline: none;
+    border: 2px solid #9812ff;
+    box-shadow: 0 0 10px rgba(152, 18, 255, 0.5);
+}
+
+.input-group-prepend span {
+    width: 50px;
+    background: linear-gradient(to bottom, #9812ff, #320bc0);
+    color: rgb(255, 255, 255);
+    border: 0 !important;
+}
+
+input[type="checkbox"] {
+    box-shadow: none;
+}
+
+input[type="radio"] {
+    accent-color: #9812ff;
+}
+
+.remember {
+    color: white;
+}
+
+.remember input {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+}
+
+.submit {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #9812ff, #320bc0);
+    width: fit-content;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.submit:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #ad41ff, #572ded);
+    transform: scale(1.1);
+}
+
+.reset {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #000000, #434343);
+    width: 100px;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.reset:hover {
+    color: rgb(255, 255, 255);
+    background: linear-gradient(to bottom, #434343, #000000);
+    transform: scale(1.1);
+}
+
+.links {
+    color: white;
+}
+
+a {
+    margin-left: 4px;
+    color: #9812ff;
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+    .container {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .social_icon {
+        right: 10px;
+        top: -35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .social_icon {
+        position: static;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+
+    .login_btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .social_icon span {
+        font-size: 40px;
+        margin-left: 5px;
+    }
+
+    .input-group-prepend span {
+        width: 40px;
+    }
+
+    .remember input {
+        width: 15px;
+        height: 15px;
+    }
+
+    .submit, .reset {
+        width: 100%;
+    }
+}
